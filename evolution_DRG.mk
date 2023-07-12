@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2019 The evolutionOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common evolution stuff
+$(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
 # Inherit from DRG device
 $(call inherit-product, device/nokia/DRG/device.mk)
@@ -30,6 +30,9 @@ $(call inherit-product, device/nokia/sdm660-common/sdm660.mk)
 # Set Shipping API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 
+# Inherit GoogleCamera 8.8
+$(call inherit-product, vendor/nokia/Camera/Camera-vendor.mk)
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -37,11 +40,20 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := DRG,DRG_sprout,Dragon
 
+# AOSP Stuff
+TARGET_USES_AOSP_RECOVERY := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_ENABLE_BLUR := true
+TARGET_USES_PICO_GAPPS := true
+
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
-PRODUCT_NAME := lineage_DRG
+PRODUCT_NAME := evolution_DRG
 PRODUCT_DEVICE := DRG
 PRODUCT_MANUFACTURER := HMD Global
 PRODUCT_BRAND := Nokia
